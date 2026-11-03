@@ -1,10 +1,86 @@
 "use strict";
 
-// ================= EDIT THESE THREE VALUES BEFORE LAUNCH =================
-const OFFER_TEXT = "Founding Partner offer — details to be confirmed.";
-const AGREEMENT_URL = "#";
-const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bBL0Ua4Gvi4HZTs73vNRuS_-w5g7Gfrec9JP0ZXWtSbYLxww/edit";
-// ========================================================================
+// ================= EDIT CONFIGURATION HERE =================
+// All offer copy lives in this one object. Layout and icons are rendered below.
+const OFFER = {
+  "stepLabel": "Your offer",
+  "stepTitle": "Your Launch Partner Offer",
+  "title": "Launch Partner Offer",
+  "plan": "Launch Partner",
+  "fees": [
+    {
+      "icon": "tag",
+      "text": "$0 monthly fee"
+    },
+    {
+      "icon": "calendar",
+      "text": "AfriToGo fees waived for your first 30 days after going live"
+    },
+    {
+      "icon": "coins",
+      "text": "After that:",
+      "items": [
+        "Delivery orders: 18%",
+        "Pickup orders: 6%"
+      ],
+      "helper": "Full fee details are included in your partner agreement."
+    }
+  ],
+  "includedHeading": "What's included",
+  "groups": [
+    {
+      "icon": "setup",
+      "heading": "Get set up",
+      "bullets": [
+        "No setup fee, no contract — leave anytime",
+        "Hands-on onboarding: we visit, set up your account and walk you through it",
+        "We build your menu for you from photos of your menu",
+        "Your own storefront on the AfriToGo app (iPhone & Android) and website",
+        "Thermal printer provided where needed"
+      ]
+    },
+    {
+      "icon": "scooter",
+      "heading": "Get orders",
+      "bullets": [
+        "Delivery through AfriToGo's delivery partners — no drivers to hire or manage",
+        "Pickup orders",
+        "Scheduled orders up to 7 days ahead",
+        "Lower delivery fees for your customers, partly covered by AfriToGo",
+        "Shown to customers near you, in the areas you deliver to"
+      ]
+    },
+    {
+      "icon": "chart",
+      "heading": "Grow",
+      "bullets": [
+        "\"New on AfriToGo\" spotlight when you launch",
+        "Launch Value Session: we help you create 2–4 bundles or offers that bring in orders without cutting your margins",
+        "Eligible for AfriToGo collections and campaigns (e.g. Great Value, cuisine features, launch marketing)"
+      ]
+    },
+    {
+      "icon": "store",
+      "heading": "Run your business",
+      "bullets": [
+        "Merchant app to accept orders, manage your menu, hours and availability, and pause when busy",
+        "New-order alerts",
+        "Sales tax collected at checkout and passed to you in your payout",
+        "Weekly payouts through Stripe, with a statement of every order and fee",
+        "Your customer order data available on request",
+        "Dedicated partner support"
+      ]
+    }
+  ],
+  "finePrint": "Offer for partners joining during AfriToGo's launch period. Terms may be updated with at least 30 days' written notice, as described in the Merchant Partner Agreement.",
+  "acceptanceLabel": "I accept the AfriToGo Launch Partner Offer.",
+  "acceptanceError": "Please accept the Launch Partner Offer to continue.",
+  "reviewAccepted": "Launch Partner — accepted",
+  "reviewNotAccepted": "Launch Partner — not accepted"
+};
+const AGREEMENT_URL = "https://partner.afritogo.com/merchant-partner-agreement.pdf";
+const APPS_SCRIPT_URL = "PASTE_WEB_APP_URL_HERE";
+// ===========================================================
 
 (() => {
   const MAX_FILE_BYTES = 8 * 1024 * 1024;
@@ -12,18 +88,18 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
   const JPEG_QUALITY = 0.8;
   const REQUEST_TIMEOUT_MS = 120000;
   const SUPPORT_EMAIL = "support@afritogo.com";
-  const STEP_TITLES = ["Your information", "Business information", "Our offer", "Logo and cover image", "Legal and compliance", "Review and submit"];
+  const STEP_TITLES = ["Your information", "Business information", OFFER.stepLabel, "Logo and cover image", "Legal and compliance", "Review and submit"];
   const STEP_FIELDS = {
     1: ["applicant_first_name", "applicant_last_name", "applicant_email", "applicant_phone", "mailing_address_line1", "mailing_address_line2", "mailing_city", "mailing_state", "mailing_zip", "is_owner", "owner_first_name", "owner_last_name", "owner_phone", "owner_email", "business_type"],
     2: ["business_name", "business_email", "business_phone", "business_address_line1", "business_address_line2", "business_city", "business_state", "business_zip", "category", "category_detail", "order_types", "equipment_needed", "sells_alcohol", "liquor_license_confirmed"],
-    3: [],
+    3: ["offer_accepted"],
     4: ["logo", "cover"],
-    5: ["owner_id", "permits", "ein"],
+    5: ["owner_id", "ownership"],
     6: ["agreement_accepted", "permits_confirmed"]
   };
   const FILE_RULES = {
     owner_id: { max: 1, required: true, label: "Owner ID" },
-    permits: { max: 5, required: true, label: "Permits" },
+    ownership: { max: 2, required: true, label: "Proof of business" },
     logo: { max: 1, required: false, label: "Logo" },
     cover: { max: 1, required: false, label: "Cover image" }
   };
@@ -31,14 +107,77 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
   const PERSON_NAME = /^[\p{L}\p{M}]+(?:[ \u0027\u2019\u02BC-][\p{L}\p{M}]+)*$/u;
   const ALLOWED_EXTENSIONS = new Set(["jpg", "jpeg", "png", "webp", "heic", "heif", "pdf"]);
   const RADIO_NAMES = new Set(["is_owner", "business_type", "order_types", "equipment_needed", "sells_alcohol"]);
-  const BOOLEAN_NAMES = new Set(["liquor_license_confirmed", "agreement_accepted", "permits_confirmed"]);
+  const BOOLEAN_NAMES = new Set(["liquor_license_confirmed", "offer_accepted", "agreement_accepted", "permits_confirmed"]);
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
   const form = $("#partner-form");
   const controls = $("#application-fields");
-  const state = { step: 1, dirty: false, sending: false, succeeded: false, nextFileId: 0, files: { owner_id: [], permits: [], logo: [], cover: [] } };
+  const state = { step: 1, dirty: false, sending: false, succeeded: false, nextFileId: 0, files: { owner_id: [], ownership: [], logo: [], cover: [] } };
   let processingQueue = Promise.resolve();
   let lastBusinessType = "";
+
+
+  const ICON_PATHS = {"people":"<circle cx=\"9\" cy=\"7\" r=\"3\"/><path d=\"M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3\"/>","chart":"<path d=\"M3 3v18h18M7 16v-4m5 4V9m5 7V5M6 8l5-4 5 1 5-4\"/>","scooter":"<circle cx=\"5\" cy=\"18\" r=\"3\"/><circle cx=\"19\" cy=\"18\" r=\"3\"/><path d=\"M8 18h7l-3-9H7l-2 6m7-6h5l2 6M13 4h4l2 8M4 8h5\"/>","setup":"<path d=\"M12 3l2 3 3-1 1 4 3 1-1 4 1 3-4 1-1 3-4-1-3 1-1-4-3-1 1-4-1-3 4-1z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>","store":"<path d=\"M4 10v11h16V10M2 10l2-7h16l2 7M2 10a3 3 0 0 0 5 2 3 3 0 0 0 5 0 3 3 0 0 0 5 0 3 3 0 0 0 5-2M9 21v-7h6v7\"/>","tag":"<path d=\"M3 3h8l10 10-8 8L3 11z\"/><circle cx=\"7.5\" cy=\"7.5\" r=\"1\"/>","calendar":"<rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"/><path d=\"M7 3v4m10-4v4M3 11h18m-13 4h2m4 0h2m-8 3h2\"/>","coins":"<ellipse cx=\"9\" cy=\"6\" rx=\"6\" ry=\"3\"/><path d=\"M3 6v4c0 4 12 4 12 0V6M3 10v4c0 4 12 4 12 0M9 18v1c0 4 12 4 12 0v-8m-6-3c8-2 8 6 0 6m0 4c3 1 6-1 6-3\"/>","info":"<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 11v6m0-10v1\"/>","handshake":"<path d=\"M2 8l4-4 5 2 3-2 8 5-4 10-3 2-7-3-6-5zM11 6l-4 5 3 2 4-4 6 5M7 16l4 3m0-5 5 4\"/>","chevron":"<path d=\"m9 5 7 7-7 7\"/>"};
+  function icon(name) {
+    const span = document.createElement("span");
+    span.className = "offer-icon";
+    span.setAttribute("aria-hidden", "true");
+    span.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + (ICON_PATHS[name] || ICON_PATHS.info) + '</svg>';
+    return span;
+  }
+  function textElement(tag, text, className = "") {
+    const node = document.createElement(tag);
+    node.textContent = text;
+    if (className) node.className = className;
+    return node;
+  }
+  function updateOfferGate() {
+    $("#next-button").disabled = state.sending || (state.step === 3 && !value("offer_accepted"));
+    const acceptance = $(".offer-acceptance");
+    acceptance.classList.toggle("is-accepted", value("offer_accepted"));
+  }
+  function renderOffer() {
+    $("#step-3-title").textContent = OFFER.stepTitle;
+    $("[data-track-step='3'] .step-label").textContent = OFFER.stepLabel;
+    $("#offer-acceptance-label").textContent = OFFER.acceptanceLabel;
+    $("#plan").value = OFFER.plan;
+    const card = $("#launch-offer");
+    card.replaceChildren();
+    const header = document.createElement("header"); header.className = "offer-header";
+    const title = textElement("h3", OFFER.title); title.id = "offer-card-title";
+    header.append(icon("handshake"), title); card.append(header);
+    const rows = document.createElement("div"); rows.className = "offer-fees";
+    OFFER.fees.forEach(fee => {
+      const row = document.createElement("div"); row.className = "offer-fee-row";
+      const copy = document.createElement("div"); copy.className = "offer-fee-copy";
+      copy.append(textElement("p", fee.text, "fee-title"));
+      if (fee.items) {
+        const list = document.createElement("ul"); list.className = "fee-rates";
+        fee.items.forEach(item => list.append(textElement("li", item)));
+        copy.append(list);
+      }
+      if (fee.helper) copy.append(textElement("p", fee.helper, "fee-helper"));
+      row.append(icon(fee.icon), copy); rows.append(row);
+    });
+    card.append(rows, textElement("h3", OFFER.includedHeading, "included-title"));
+    const groups = document.createElement("div"); groups.className = "offer-groups";
+    const desktop = window.matchMedia("(min-width: 700px)");
+    OFFER.groups.forEach(group => {
+      const details = document.createElement("details"); details.className = "offer-group";
+      details.open = desktop.matches;
+      const summary = document.createElement("summary");
+      summary.append(icon(group.icon), textElement("span", group.heading, "offer-group-heading"), icon("chevron"));
+      const list = document.createElement("ul");
+      group.bullets.forEach(item => list.append(textElement("li", item)));
+      details.append(summary, list); groups.append(details);
+    });
+    const onChange = event => groups.querySelectorAll("details").forEach(details => { details.open = event.matches; });
+    if (desktop.addEventListener) desktop.addEventListener("change", onChange);
+    else desktop.addListener(onChange);
+    const fine = document.createElement("div"); fine.className = "offer-fine-print";
+    fine.append(icon("info"), textElement("p", OFFER.finePrint));
+    card.append(groups, fine);
+  }
 
   function value(name) {
     if (RADIO_NAMES.has(name)) return $(`input[name="${name}"]:checked`, form)?.value || "";
@@ -112,7 +251,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
     if (isConditionalInactive(name)) return "";
     if (FILE_RULES[name]) {
       const entries = state.files[name];
-      if (FILE_RULES[name].required && entries.length === 0) return name === "permits" ? "Add at least one permit or certification file." : "Add one owner government-issued ID file.";
+      if (FILE_RULES[name].required && entries.length === 0) return name === "ownership" ? "Add one or two proof of business files." : "Add one owner government-issued ID file.";
       if (entries.length > FILE_RULES[name].max) return `Choose no more than ${FILE_RULES[name].max} files.`;
       if (entries.some(item => item.status === "preparing")) return "Your file is still being prepared. Please let it finish before continuing.";
       if (entries.some(item => item.status === "error")) return "Remove or replace the file marked with an error before continuing.";
@@ -121,6 +260,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
     const input = $(`[name="${name}"]`, form);
     const entered = value(name);
     if (RADIO_NAMES.has(name)) return entered ? "" : "Please select an option.";
+    if (name === "offer_accepted") return entered ? "" : OFFER.acceptanceError;
     if (BOOLEAN_NAMES.has(name)) return entered ? "" : "Please confirm this statement before continuing.";
     if (input?.required && !entered) return "Please complete this field.";
     if (!entered) return "";
@@ -132,7 +272,6 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
     if (name.endsWith("_city") && (!/\p{L}/u.test(entered) || /[@<>\r\n]/.test(entered))) return "Enter the city name.";
     if (name.endsWith("_address_line1") && (!/\p{L}/u.test(entered) || /[@<>\r\n]/.test(entered))) return "Enter a street address, not a phone number or email.";
     if (name.endsWith("_address_line2") && /[@<>\r\n]/.test(entered)) return "Enter an apartment, suite or unit, or leave this optional field blank.";
-    if (name === "ein" && !/^\d{2}-?\d{7}$/.test(entered)) return "Enter 9 digits, with or without the dash: XX-XXXXXXX.";
     if (name === "category") {
       const allowed = value("business_type") === "Grocery Store"
         ? ["African Grocery Store", "Caribbean Grocery Store", "Other"]
@@ -197,6 +336,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
       setError("category", "");
     }
     refreshChoices();
+    updateOfferGate();
   }
 
   function clearSubmissionError() {
@@ -219,6 +359,8 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
 
   function showStep(step, focus = true) {
     state.step = Math.min(6, Math.max(1, step));
+    document.body.dataset.step = String(state.step);
+    updateOfferGate();
     $$(".form-step").forEach(panel => { panel.hidden = Number(panel.dataset.step) !== state.step; });
     $("#step-counter").textContent = `Step ${state.step} of 6`;
     $("#step-summary").textContent = stepTitle(state.step);
@@ -260,9 +402,9 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
     const groups = [
       { title: "Your information", step: 1, pairs: [["Name", fullName("applicant")], ["Email", value("applicant_email")], ["Phone", value("applicant_phone")], ["Mailing address", formattedAddress("mailing")], ["Business owner?", value("is_owner")], ...ownerPairs] },
       { title: stepTitle(2), step: 2, pairs: [["Business", value("business_name")], ["Type", value("business_type")], ["Email for updates", value("business_email")], ["Phone", value("business_phone")], ["Business address", formattedAddress("business")], ["Category", value("category")], ["Specific cuisine / country", value("category_detail") || "Not provided"], ["Orders", value("order_types")], ["Equipment needed?", value("equipment_needed")], ["Sells alcohol?", value("sells_alcohol")], ...(value("sells_alcohol") === "Yes" ? [["NYS liquor license", value("liquor_license_confirmed") ? "Confirmed" : "Not confirmed"]] : [])] },
-      { title: "Your offer", step: 3, pairs: [["Plan", "Founding Partner"], ["Offer", OFFER_TEXT]] },
+      { title: OFFER.stepLabel, step: 3, pairs: [["Offer", value("offer_accepted") ? OFFER.reviewAccepted : OFFER.reviewNotAccepted]] },
       { title: "Business images", step: 4, pairs: [["Logo", fileNames("logo")], ["Cover image", fileNames("cover")]] },
-      { title: "Documents", step: 5, pairs: [["Owner ID", fileNames("owner_id")], ["Permits", fileNames("permits")], ["Business EIN", `Ending in ${value("ein").replace(/\D/g, "").slice(-4)}`]] }
+      { title: "Documents", step: 5, pairs: [["Owner ID", fileNames("owner_id")], ["Proof of business", fileNames("ownership")]] }
     ];
     const consentNote = $("#owner-consent-review");
     consentNote.hidden = value("is_owner") !== "No";
@@ -413,7 +555,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
     const unique = selected.filter((file, i, all) =>
       !all.slice(0, i).some(other => other.name === file.name && other.size === file.size && other.lastModified === file.lastModified) &&
       (rule.max === 1 || !state.files[name].some(entry => entry.original.name === file.name && entry.original.size === file.size && entry.original.lastModified === file.lastModified)));
-    if (rule.max > 1 && state.files[name].length + unique.length > rule.max) { setError(name, "Choose no more than 5 permit files. Extra files were not added."); return; }
+    if (rule.max > 1 && state.files[name].length + unique.length > rule.max) { setError(name, `Choose no more than ${rule.max} files for ${rule.label.toLowerCase()}. Extra files were not added.`); return; }
     if (rule.max === 1) state.files[name] = [];
     setError(name, ""); state.dirty = true;
     unique.forEach(file => {
@@ -453,7 +595,6 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
 
   async function createPayload() {
     const ownerIsApplicant = value("is_owner") === "Yes";
-    const digits = value("ein").replace(/\D/g, "");
     // Separate UI names/addresses are composed into the original API fields.
     // The server derives owner authorization requirements from is_owner === "No".
     // Keep this object aligned with the Apps Script contract. No extra keys,
@@ -468,11 +609,11 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
       category: value("category"), category_detail: value("category_detail"), order_types: value("order_types"),
       equipment_needed: value("equipment_needed"), sells_alcohol: value("sells_alcohol"),
       liquor_license_confirmed: value("sells_alcohol") === "Yes" && value("liquor_license_confirmed"),
-      ein: `${digits.slice(0, 2)}-${digits.slice(2)}`, plan: "Founding Partner",
+      plan: OFFER.plan, offer_accepted: value("offer_accepted"),
       agreement_accepted: value("agreement_accepted"), permits_confirmed: value("permits_confirmed"), website: value("website"),
-      files: { owner_id: [], permits: [], logo: [], cover: [] }
+      files: { owner_id: [], ownership: [], logo: [], cover: [] }
     };
-    // Sequential encoding avoids decoding/encoding eight photos in parallel.
+    // Sequential encoding avoids preparing several large documents in parallel.
     for (const name of Object.keys(FILE_RULES)) {
       for (const entry of state.files[name]) {
         if (entry.status !== "ready" || !entry.prepared || entry.prepared.blob.size > MAX_FILE_BYTES) throw new Error(`Check the ${FILE_RULES[name].label.toLowerCase()} files before submitting.`);
@@ -482,24 +623,20 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
     return payload;
   }
 
-  function configuredAgreement() {
-    if (!AGREEMENT_URL.trim() || AGREEMENT_URL.trim() === "#") return false;
-    try { const url = new URL(AGREEMENT_URL, location.href); return url.protocol === "https:"; } catch (_) { return false; }
-  }
-
   function configuredEndpoint() {
-    // Restrict sensitive application documents to an explicitly configured
-    // Google Apps Script HTTPS /exec deployment, not a pasted arbitrary URL.
+    // A configured HTTPS endpoint is the only configuration gate. The agreement
+    // link is never probed and its availability never blocks a submission.
+    const endpoint = APPS_SCRIPT_URL.trim();
+    if (!endpoint || endpoint === "PASTE_WEB_APP_URL_HERE") return false;
     try {
-      const url = new URL(APPS_SCRIPT_URL);
-      return url.protocol === "https:" && url.hostname === "script.google.com" && /^\/macros\/s\/[A-Za-z0-9_-]+\/exec\/?$/.test(url.pathname) && !url.username && !url.password && !url.search && !url.hash;
+      const url = new URL(endpoint);
+      return url.protocol === "https:" && !url.username && !url.password;
     } catch (_) { return false; }
   }
 
   function configurationMessages() {
     const errors = [];
     if (!configuredEndpoint()) errors.push(`Applications are not open for submission yet. Please contact ${SUPPORT_EMAIL}; your entries have not been sent.`);
-    if (!configuredAgreement()) errors.push("The Merchant Partner Agreement is not available yet. Please contact support before agreeing or submitting.");
     return errors;
   }
 
@@ -592,16 +729,13 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
   }
 
   function initialize() {
-    $("#offer-text").textContent = OFFER_TEXT;
+    renderOffer();
     $("#copyright-year").textContent = String(new Date().getFullYear());
     $("#agreement-link").href = AGREEMENT_URL;
-    $("#agreement-notice").hidden = configuredAgreement();
-    $("#agreement-link").addEventListener("click", event => {
-      if (!configuredAgreement()) {
-        event.preventDefault();
-        $("#agreement-notice").hidden = false;
-        $("#step-status").textContent = "The merchant agreement is not available yet. Please contact support.";
-      }
+    $("#brand-toggle").addEventListener("click", () => {
+      const expanded = $("#brand-toggle").getAttribute("aria-expanded") === "true";
+      $("#brand-toggle").setAttribute("aria-expanded", String(!expanded));
+      document.body.classList.toggle("welcome-open", !expanded);
     });
     $("#next-button").addEventListener("click", () => { if (!state.sending && validateStep(state.step)) showStep(state.step + 1); });
     $("#back-button").addEventListener("click", () => { if (!state.sending) showStep(state.step - 1); });
@@ -617,7 +751,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bB
       if (event.isComposing || !event.data || !event.inputType.startsWith("insert")) return;
       const forbidden = input.matches('[data-person-name]') ? /[^\p{L}\p{M} \u0027\u2019\u02BC-]/u
         : input.matches('input[type="tel"]') ? /[^0-9 +().-]/
-        : input.matches('[name$="_zip"],#ein') ? /[^0-9-]/ : null;
+        : input.matches('[name$="_zip"]') ? /[^0-9-]/ : null;
       if (forbidden && forbidden.test(event.data) && event.cancelable) {
         event.preventDefault();
         setError(input.name, input.matches('[data-person-name]') ? "Use letters, spaces, hyphens or apostrophes only."

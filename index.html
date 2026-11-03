@@ -1,138 +1,1348 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<meta content="#F84803" name="theme-color"/>
-<meta content="Apply to partner with AfriToGo. Bring your African and Caribbean food and groceries to more customers across New York." name="description"/>
-<meta content="strict-origin-when-cross-origin" name="referrer"/>
-<meta content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src https://script.google.com https://script.googleusercontent.com; base-uri 'self'; form-action 'none'; object-src 'none'" http-equiv="Content-Security-Policy"/>
-<title>Partner with AfriToGo · Business application</title>
-<link href="assets/afritogo-icon.svg" rel="icon" type="image/svg+xml"/>
-<link href="styles.css" rel="stylesheet"/>
-<script defer="" src="app.js"></script>
-</head>
-<body>
-<a class="skip-link" href="#application-card">Skip to application</a>
-<header class="site-header">
-<div class="header-inner">
-<a aria-label="AfriToGo home" class="brand" href="https://www.afritogo.com"><img alt="AfriToGo" height="34" src="assets/afritogo-logo.svg" width="188"/></a>
-
-
-</div>
-</header>
-<main aria-labelledby="application-title" class="page-layout"><div class="application-intro"><h1 id="application-title">Partner with AfriToGo</h1></div>
-
-<section aria-label="Partner application form" class="application-card" id="application-card" tabindex="-1">
-<div class="form-progress" id="form-progress">
-<div class="progress-meta"><span id="step-counter">Step 1 of 6</span><span id="step-summary">Your information</span></div>
-<progress aria-labelledby="step-counter step-summary" id="application-progress" max="6" value="1">Step 1 of 6</progress>
-<ol aria-label="Application steps" class="step-track"><li aria-current="step">You</li><li>Business</li><li>Offer</li><li>Images</li><li>Documents</li><li>Review</li></ol>
-</div>
-<noscript><div class="notice">Please enable JavaScript to complete this application. For help, email <a href="mailto:support@afritogo.com">support@afritogo.com</a>.</div></noscript>
-<p class="notice" id="initialization-message" role="status">Loading your application…</p>
-<form action="#" id="partner-form" method="post" novalidate="">
-<fieldset class="form-fields" disabled="" id="application-fields">
-<legend class="sr-only">Partner application details</legend>
-<p class="required-note"><span aria-hidden="true">*</span> Required fields</p>
-<div aria-hidden="true" class="honeypot"><label for="website">Website</label><input autocomplete="off" id="website" name="website" tabindex="-1" type="text"/></div>
-<section aria-labelledby="step-1-title" class="form-step" data-step="1" id="step-1"><div class="step-heading"><h2 id="step-1-title" tabindex="-1">Your information</h2></div><div class="field-grid"><div class="name-pair field--wide"><div class="field" data-field="applicant_first_name"><label for="applicant_first_name">First Name <span aria-hidden="true" class="required">*</span></label><input aria-describedby="applicant_first_name-error" autocapitalize="words" autocomplete="section-applicant given-name" data-person-name="true" id="applicant_first_name" maxlength="100" name="applicant_first_name" required="" spellcheck="false" type="text"/><p class="field-error" hidden="" id="applicant_first_name-error"></p></div><div class="field" data-field="applicant_last_name"><label for="applicant_last_name">Last Name <span aria-hidden="true" class="required">*</span></label><input aria-describedby="applicant_last_name-error" autocapitalize="words" autocomplete="section-applicant family-name" data-person-name="true" id="applicant_last_name" maxlength="100" name="applicant_last_name" required="" spellcheck="false" type="text"/><p class="field-error" hidden="" id="applicant_last_name-error"></p></div></div><div class="field" data-field="applicant_email">
-<label for="applicant_email">Email address <span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="applicant_email-error" autocapitalize="none" autocomplete="section-applicant email" id="applicant_email" inputmode="email" maxlength="254" name="applicant_email" placeholder="name@example.com" required="" spellcheck="false" type="email"/><p class="field-error" hidden="" id="applicant_email-error"></p>
-</div><div class="field" data-field="applicant_phone">
-<label for="applicant_phone">Phone number <span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="applicant_phone-error" autocomplete="section-applicant tel" id="applicant_phone" inputmode="tel" maxlength="25" name="applicant_phone" placeholder="(212) 555-0100" required="" type="tel"/><p class="field-error" hidden="" id="applicant_phone-error"></p>
-</div><fieldset class="address-group field--wide"><legend>Mailing address</legend><div class="address-grid"><div class="field field--wide" data-field="mailing_address_line1"><label for="mailing_address_line1">Address Line 1 <span aria-hidden="true" class="required">*</span></label><input aria-describedby="mailing_address_line1-error" autocomplete="section-applicant address-line1" id="mailing_address_line1" maxlength="200" name="mailing_address_line1" placeholder="Street address" required="" type="text"/><p class="field-error" hidden="" id="mailing_address_line1-error"></p></div><div class="field field--wide" data-field="mailing_address_line2"><label for="mailing_address_line2">Address Line 2 <span class="optional">Optional</span></label><input aria-describedby="mailing_address_line2-error" autocomplete="section-applicant address-line2" id="mailing_address_line2" maxlength="200" name="mailing_address_line2" placeholder="Apartment, suite, unit, etc." type="text"/><p class="field-error" hidden="" id="mailing_address_line2-error"></p></div><div class="field address-city" data-field="mailing_city"><label for="mailing_city">City <span aria-hidden="true" class="required">*</span></label><input aria-describedby="mailing_city-error" autocomplete="section-applicant address-level2" id="mailing_city" maxlength="100" name="mailing_city" required="" type="text"/><p class="field-error" hidden="" id="mailing_city-error"></p></div><div class="field" data-field="mailing_state"><label for="mailing_state">State <span aria-hidden="true" class="required">*</span></label><select aria-describedby="mailing_state-error" autocomplete="section-applicant address-level1" id="mailing_state" name="mailing_state" required=""><option value="">Select state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select><p class="field-error" hidden="" id="mailing_state-error"></p></div><div class="field" data-field="mailing_zip"><label for="mailing_zip">ZIP Code <span aria-hidden="true" class="required">*</span></label><input aria-describedby="mailing_zip-error" autocomplete="section-applicant postal-code" id="mailing_zip" inputmode="numeric" maxlength="10" name="mailing_zip" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="ZIP Code" required="" type="text"/><p class="field-error" hidden="" id="mailing_zip-error"></p></div></div></fieldset><fieldset class="field choice-field field--wide" data-field="is_owner">
-<legend>Are you the business owner? <span aria-hidden="true" class="required">*</span></legend>
-<div class="choice-grid"><label class="choice"><input aria-describedby="is_owner-error" id="is_owner-0" name="is_owner" required="" type="radio" value="Yes"/><span>Yes</span></label><label class="choice"><input aria-describedby="is_owner-error" id="is_owner-1" name="is_owner" required="" type="radio" value="No"/><span>No</span></label></div>
-<p class="field-error" hidden="" id="is_owner-error"></p></fieldset><fieldset class="conditional-block field--wide" disabled="" hidden="" id="owner-fields"><legend>Business owner’s information</legend><p class="field-hint">The owner must authorize this application before approval.</p><div class="field-grid"><div class="name-pair field--wide"><div class="field" data-field="owner_first_name"><label for="owner_first_name">First Name <span aria-hidden="true" class="required">*</span></label><input aria-describedby="owner_first_name-error" autocapitalize="words" autocomplete="section-owner given-name" data-person-name="true" id="owner_first_name" maxlength="100" name="owner_first_name" required="" spellcheck="false" type="text"/><p class="field-error" hidden="" id="owner_first_name-error"></p></div><div class="field" data-field="owner_last_name"><label for="owner_last_name">Last Name <span aria-hidden="true" class="required">*</span></label><input aria-describedby="owner_last_name-error" autocapitalize="words" autocomplete="section-owner family-name" data-person-name="true" id="owner_last_name" maxlength="100" name="owner_last_name" required="" spellcheck="false" type="text"/><p class="field-error" hidden="" id="owner_last_name-error"></p></div></div><div class="field" data-field="owner_phone">
-<label for="owner_phone">Owner’s phone number <span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="owner_phone-error" autocomplete="section-owner tel" id="owner_phone" inputmode="tel" maxlength="25" name="owner_phone" placeholder="(212) 555-0100" required="" type="tel"/><p class="field-error" hidden="" id="owner_phone-error"></p>
-</div><div class="field" data-field="owner_email">
-<label for="owner_email">Owner’s email address <span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="owner_email-error" autocapitalize="none" autocomplete="section-owner email" id="owner_email" inputmode="email" maxlength="254" name="owner_email" placeholder="name@example.com" required="" spellcheck="false" type="email"/><p class="field-error" hidden="" id="owner_email-error"></p>
-</div></div></fieldset><fieldset class="field choice-field field--wide" data-field="business_type">
-<legend>Business type <span aria-hidden="true" class="required">*</span></legend>
-<div class="choice-grid"><label class="choice"><input aria-describedby="business_type-error" id="business_type-0" name="business_type" required="" type="radio" value="Restaurant"/><span>Restaurant</span></label><label class="choice"><input aria-describedby="business_type-error" id="business_type-1" name="business_type" required="" type="radio" value="Grocery Store"/><span>Grocery Store</span></label></div>
-<p class="field-error" hidden="" id="business_type-error"></p></fieldset></div></section>
-<section aria-labelledby="step-2-title" class="form-step" data-step="2" hidden="" id="step-2"><div class="step-heading"><h2 data-default-title="Business information" id="step-2-title" tabindex="-1">Business information</h2><p id="business-path-note"></p></div><div class="field-grid"><div class="field field--wide" data-field="business_name">
-<label for="business_name"><span id="business-name-label">Business name</span><span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="business_name-error" autocomplete="section-business organization" id="business_name" maxlength="200" name="business_name" required="" type="text"/><p class="field-error" hidden="" id="business_name-error"></p>
-</div><div class="field" data-field="business_email">
-<label for="business_email">Business email <span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="business_email-error" autocapitalize="none" autocomplete="section-business email" id="business_email" inputmode="email" maxlength="254" name="business_email" placeholder="name@example.com" required="" spellcheck="false" type="email"/><p class="field-error" hidden="" id="business_email-error"></p>
-</div><div class="field" data-field="business_phone">
-<label for="business_phone">Business phone <span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="business_phone-error" autocomplete="section-business tel" id="business_phone" inputmode="tel" maxlength="25" name="business_phone" placeholder="(212) 555-0100" required="" type="tel"/><p class="field-error" hidden="" id="business_phone-error"></p>
-</div><fieldset class="address-group field--wide"><legend>Business address</legend><div class="address-grid"><div class="field field--wide" data-field="business_address_line1"><label for="business_address_line1">Address Line 1 <span aria-hidden="true" class="required">*</span></label><input aria-describedby="business_address_line1-error" autocomplete="section-business address-line1" id="business_address_line1" maxlength="200" name="business_address_line1" placeholder="Street address" required="" type="text"/><p class="field-error" hidden="" id="business_address_line1-error"></p></div><div class="field field--wide" data-field="business_address_line2"><label for="business_address_line2">Address Line 2 <span class="optional">Optional</span></label><input aria-describedby="business_address_line2-error" autocomplete="section-business address-line2" id="business_address_line2" maxlength="200" name="business_address_line2" placeholder="Apartment, suite, unit, etc." type="text"/><p class="field-error" hidden="" id="business_address_line2-error"></p></div><div class="field address-city" data-field="business_city"><label for="business_city">City <span aria-hidden="true" class="required">*</span></label><input aria-describedby="business_city-error" autocomplete="section-business address-level2" id="business_city" maxlength="100" name="business_city" required="" type="text"/><p class="field-error" hidden="" id="business_city-error"></p></div><div class="field" data-field="business_state"><label for="business_state">State <span aria-hidden="true" class="required">*</span></label><select aria-describedby="business_state-error" autocomplete="section-business address-level1" id="business_state" name="business_state" required=""><option value="">Select state</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select><p class="field-error" hidden="" id="business_state-error"></p></div><div class="field" data-field="business_zip"><label for="business_zip">ZIP Code <span aria-hidden="true" class="required">*</span></label><input aria-describedby="business_zip-error" autocomplete="section-business postal-code" id="business_zip" inputmode="numeric" maxlength="10" name="business_zip" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="ZIP Code" required="" type="text"/><p class="field-error" hidden="" id="business_zip-error"></p></div></div></fieldset><div class="field field--wide" data-field="category"><label for="category"><span id="category-label">Cuisine Type</span> <span aria-hidden="true" class="required">*</span></label><select aria-describedby="category-error" id="category" name="category" required=""><option value="">Select a category</option></select><p class="field-error" hidden="" id="category-error"></p></div><div class="field field--wide" data-field="category_detail">
-<label for="category_detail"><span id="category-detail-label">Specific cuisine or country</span><span class="optional">Optional</span></label>
-<input aria-describedby="category_detail-hint category_detail-error" id="category_detail" maxlength="200" name="category_detail" type="text"/><p class="field-hint" id="category_detail-hint">For example, Ghanaian, Nigerian or Jamaican.</p><p class="field-error" hidden="" id="category_detail-error"></p>
-</div><fieldset class="field choice-field field--wide" data-field="order_types">
-<legend>How do you want to receive orders? <span aria-hidden="true" class="required">*</span></legend>
-<div class="choice-grid choice-grid--three"><label class="choice"><input aria-describedby="order_types-error" id="order_types-0" name="order_types" required="" type="radio" value="Delivery"/><span>Delivery</span></label><label class="choice"><input aria-describedby="order_types-error" id="order_types-1" name="order_types" required="" type="radio" value="Pickup"/><span>Pickup</span></label><label class="choice"><input aria-describedby="order_types-error" id="order_types-2" name="order_types" required="" type="radio" value="Delivery and Pickup"/><span>Delivery and Pickup</span></label></div>
-<p class="field-error" hidden="" id="order_types-error"></p></fieldset><fieldset class="field choice-field field--wide" data-field="equipment_needed">
-<legend>Do you need a tablet or printer to manage orders? <span aria-hidden="true" class="required">*</span></legend>
-<div class="choice-grid"><label class="choice"><input aria-describedby="equipment_needed-error" id="equipment_needed-0" name="equipment_needed" required="" type="radio" value="Yes"/><span>Yes</span></label><label class="choice"><input aria-describedby="equipment_needed-error" id="equipment_needed-1" name="equipment_needed" required="" type="radio" value="No"/><span>No</span></label></div>
-<p class="field-error" hidden="" id="equipment_needed-error"></p></fieldset><fieldset class="field choice-field field--wide" data-field="sells_alcohol">
-<legend>Do you sell alcohol? <span aria-hidden="true" class="required">*</span></legend>
-<div class="choice-grid"><label class="choice"><input aria-describedby="sells_alcohol-error" id="sells_alcohol-0" name="sells_alcohol" required="" type="radio" value="Yes"/><span>Yes</span></label><label class="choice"><input aria-describedby="sells_alcohol-error" id="sells_alcohol-1" name="sells_alcohol" required="" type="radio" value="No"/><span>No</span></label></div>
-<p class="field-error" hidden="" id="sells_alcohol-error"></p></fieldset><fieldset class="conditional-block field--wide" disabled="" hidden="" id="alcohol-fields"><legend class="sr-only">Liquor license confirmation</legend><div class="field field--wide check-field" data-field="liquor_license_confirmed"><label class="check-label" for="liquor_license_confirmed"><input aria-describedby="liquor_license_confirmed-error" id="liquor_license_confirmed" name="liquor_license_confirmed" required="" type="checkbox"/><span>I confirm that my business holds a valid NYS Liquor License <span aria-hidden="true" class="required">*</span></span></label><p class="field-error" hidden="" id="liquor_license_confirmed-error"></p></div></fieldset></div></section>
-<section aria-labelledby="step-3-title" class="form-step" data-step="3" hidden="" id="step-3"><div class="step-heading"><h2 id="step-3-title" tabindex="-1">Our offer</h2><p>Here’s the plan connected to your application.</p></div><div class="step-content"><div class="offer-card"><span class="offer-label">YOUR PARTNER PLAN</span><h3>Founding Partner</h3><p id="offer-text"></p></div><div class="soft-note"><span aria-hidden="true" class="note-mark">i</span><p>This application is the first step. Our team will review your information and contact you about the next steps.</p></div><input id="plan" name="plan" type="hidden" value="Founding Partner"/></div></section>
-<section aria-labelledby="step-4-title" class="form-step" data-step="4" hidden="" id="step-4"><div class="step-heading"><h2 id="step-4-title" tabindex="-1">Logo and cover image</h2><p>Help customers recognize your business. Both uploads are optional.</p></div><div class="field-grid"><div class="field field--wide upload-field" data-field="logo">
-<label class="upload-title" for="logo">Business logo <span class="optional">Optional</span></label>
-<p class="field-hint" id="logo-hint">512 × 512 px recommended. You can add this later.</p>
-<div class="upload-zone" data-upload-zone="logo">
-<input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="logo-hint file-rules logo-error" class="file-input" id="logo" name="logo" type="file"/>
-<div aria-hidden="true" class="upload-content"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24"><path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"></path></svg><span><strong>Choose a file</strong><small>or drag and drop here</small></span><span class="upload-count">1 file</span></div>
-</div>
-<ul aria-label="Selected business logo files" class="file-list" id="logo-list"></ul>
-<p class="field-error" hidden="" id="logo-error"></p>
-</div><div class="field field--wide upload-field" data-field="cover">
-<label class="upload-title" for="cover">Cover image <span class="optional">Optional</span></label>
-<p class="field-hint" id="cover-hint">2000 × 1000 px recommended. Show your food, products or storefront.</p>
-<div class="upload-zone" data-upload-zone="cover">
-<input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="cover-hint file-rules cover-error" class="file-input" id="cover" name="cover" type="file"/>
-<div aria-hidden="true" class="upload-content"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24"><path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"></path></svg><span><strong>Choose a file</strong><small>or drag and drop here</small></span><span class="upload-count">1 file</span></div>
-</div>
-<ul aria-label="Selected cover image files" class="file-list" id="cover-list"></ul>
-<p class="field-error" hidden="" id="cover-error"></p>
-</div></div></section>
-<section aria-labelledby="step-5-title" class="form-step" data-step="5" hidden="" id="step-5"><div class="step-heading"><h2 id="step-5-title" tabindex="-1">Legal and compliance</h2><p>Have your ID, business permits and EIN ready.</p></div><div class="field-grid"><div class="field field--wide upload-field" data-field="owner_id">
-<label class="upload-title" for="owner_id">Owner government-issued ID (Driver License, State ID or Passport) <span aria-hidden="true" class="required">*</span></label>
-<p class="field-hint" id="owner_id-hint">One clear file. Make sure the details are readable.</p>
-<div class="upload-zone" data-upload-zone="owner_id">
-<input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="owner_id-hint file-rules owner_id-error" aria-required="true" class="file-input" id="owner_id" name="owner_id" type="file"/>
-<div aria-hidden="true" class="upload-content"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24"><path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"></path></svg><span><strong>Choose a file</strong><small>or drag and drop here</small></span><span class="upload-count">1 file</span></div>
-</div>
-<ul aria-label="Selected owner government-issued id (driver license, state id or passport) files" class="file-list" id="owner_id-list"></ul>
-<p class="field-error" hidden="" id="owner_id-error"></p>
-</div><div class="field field--wide upload-field" data-field="permits">
-<label class="upload-title" for="permits">Health and food service permits <span aria-hidden="true" class="required">*</span></label>
-<p class="field-hint" id="permits-hint">Upload 1–5 files. At least one: Food Service Establishment Permit / Health Department License, latest health inspection report, Food Handler / Manager certification, Commercial Kitchen Permit (if applicable).</p>
-<div class="upload-zone" data-upload-zone="permits">
-<input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="permits-hint file-rules permits-error" aria-required="true" class="file-input" id="permits" multiple="" name="permits" type="file"/>
-<div aria-hidden="true" class="upload-content"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="24"><path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"></path></svg><span><strong>Choose files</strong><small>or drag and drop here</small></span><span class="upload-count">Up to 5</span></div>
-</div>
-<ul aria-label="Selected health and food service permits files" class="file-list" id="permits-list"></ul>
-<p class="field-error" hidden="" id="permits-error"></p>
-</div><div class="field field--wide" data-field="ein">
-<label for="ein">Business EIN <span aria-hidden="true" class="required">*</span></label>
-<input aria-describedby="ein-hint ein-error" autocapitalize="none" id="ein" inputmode="numeric" maxlength="10" name="ein" placeholder="XX-XXXXXXX" required="" spellcheck="false" type="text"/><p class="field-hint" id="ein-hint">9 digits, with or without the dash. Do not enter a Social Security number.</p><p class="field-error" hidden="" id="ein-error"></p>
-</div></div></section>
-<section aria-labelledby="step-6-title" class="form-step" data-step="6" hidden="" id="step-6"><div class="step-heading"><h2 id="step-6-title" tabindex="-1">Review and submit</h2><p>Check your details, then confirm the statements below.</p></div><div class="step-content"><div class="review-summary" id="review-summary"></div><p class="consent-note" hidden="" id="owner-consent-review"></p><div class="agreement-card"><a href="#" id="agreement-link" rel="noopener noreferrer" target="_blank">View Merchant Agreement <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><p class="field-hint" hidden="" id="agreement-notice">The merchant agreement is not available yet. Please contact support before submitting.</p></div><div class="field field--wide check-field" data-field="agreement_accepted"><label class="check-label" for="agreement_accepted"><input aria-describedby="agreement_accepted-error" id="agreement_accepted" name="agreement_accepted" required="" type="checkbox"/><span>I have read and agree to the AfriToGo Merchant Partner Agreement and confirm that all information provided is accurate. <span aria-hidden="true" class="required">*</span></span></label><p class="field-error" hidden="" id="agreement_accepted-error"></p></div><div class="field field--wide check-field" data-field="permits_confirmed"><label class="check-label" for="permits_confirmed"><input aria-describedby="permits_confirmed-error" id="permits_confirmed" name="permits_confirmed" required="" type="checkbox"/><span>I confirm that my business holds all required NYC permits, licenses and certifications to legally operate as a food establishment in New York City, including a valid NYC Food Service Establishment Permit. <span aria-hidden="true" class="required">*</span></span></label><p class="field-error" hidden="" id="permits_confirmed-error"></p></div></div></section>
-<p class="upload-rules" hidden="" id="file-rules">JPG, JPEG, PNG, WEBP, HEIC, HEIF or PDF. Maximum 8 MB per file after processing. Photos are resized in your browser where supported; PDFs are unchanged.</p>
-<div class="error-summary" hidden="" id="submission-error" role="alert" tabindex="-1"><h3>We couldn’t submit your application</h3><ul id="submission-errors"></ul></div>
-<div class="form-actions"><button class="button button--secondary" hidden="" id="back-button" type="button"><span aria-hidden="true">←</span> Back</button><span class="next-note" id="next-note">Next: Business information</span><button class="button button--primary" id="next-button" type="button">Continue <span aria-hidden="true">→</span></button><button class="button button--primary" hidden="" id="submit-button" type="submit">Submit application <span aria-hidden="true">→</span></button></div>
-</fieldset>
-</form>
-<p aria-atomic="true" aria-live="polite" class="sr-only" id="step-status" role="status"></p>
-<div aria-atomic="true" aria-live="polite" class="submission-status" hidden="" id="submission-status" role="status"><span aria-hidden="true" class="spinner"></span><p>Submitting your application…<small>Keep this page open while your documents upload.</small></p></div>
-<section aria-labelledby="success-title" class="success-screen" hidden="" id="success-screen">
-<div aria-hidden="true" class="success-icon">✓</div><p class="eyebrow">APPLICATION RECEIVED</p><h2 id="success-title" tabindex="-1">Thank you for applying.</h2><p id="success-message"></p><p class="consent-note" hidden="" id="owner-consent-status"></p><div class="application-number"><span>Your application number</span><strong id="application-id"></strong></div><p class="success-help">Keep this number for your records. Questions?<br/><a href="mailto:support@afritogo.com">support@afritogo.com</a></p><a class="button button--primary" href="https://www.afritogo.com">Return to AfriToGo <span aria-hidden="true">↗</span></a>
-</section>
-</section>
-</main>
-<footer class="site-footer"><span>© <span id="copyright-year">2026</span> AfriToGo. All rights reserved.</span></footer>
-</body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+  <meta content="#F84803" name="theme-color"/>
+  <meta content="Grow your business with AfriToGo. Bring authentic African and Caribbean meals and groceries to more households in your community and beyond." name="description"/>
+  <meta content="strict-origin-when-cross-origin" name="referrer"/>
+  <meta content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src https:; base-uri 'self'; form-action 'none'; object-src 'none'" http-equiv="Content-Security-Policy"/>
+  <title>
+   Partner with AfriToGo · Business application
+  </title>
+  <link href="assets/afritogo-icon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script defer="" src="app.js">
+  </script>
+ </head>
+ <body>
+  <a class="skip-link" href="#application-card">
+   Skip to application
+  </a>
+  <header class="site-header">
+   <div class="header-inner">
+    <a aria-label="AfriToGo home" class="brand" href="https://www.afritogo.com">
+     <img alt="AfriToGo" height="34" src="assets/afritogo-logo.svg" width="188"/>
+    </a>
+    <span aria-hidden="true" class="header-divider">
+    </span>
+    <span class="header-caption">
+     Partner Application
+    </span>
+    <a class="header-start" href="#application-card">
+     Apply now
+     <span aria-hidden="true">
+      ↗
+     </span>
+    </a>
+    <button aria-controls="application-welcome" aria-expanded="false" class="brand-toggle" id="brand-toggle" type="button">
+     <span class="sr-only">
+      About partnering with AfriToGo
+     </span>
+     <span aria-hidden="true">
+      ☰
+     </span>
+    </button>
+   </div>
+  </header>
+  <main aria-labelledby="application-title" class="page-layout">
+   <aside aria-labelledby="application-title" class="brand-panel" id="application-welcome">
+    <div class="brand-copy">
+     <h1 id="application-title">
+      Grow your business with AfriToGo
+     </h1>
+     <span aria-hidden="true" class="brand-underline">
+     </span>
+     <p class="brand-intro">
+      Bring authentic African and Caribbean meals and groceries to more households in your community and beyond.
+     </p>
+     <div class="brand-pillars">
+      <section class="brand-pillar">
+       <span class="pillar-icon">
+        <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+         <circle cx="9" cy="7" r="3">
+         </circle>
+         <path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3">
+         </path>
+        </svg>
+       </span>
+       <div>
+        <h2>
+         Reach customers looking for what you offer
+        </h2>
+        <p>
+         From hot cooked meals to everyday groceries, make it easy for people to find your store and order their favorite items.
+        </p>
+       </div>
+      </section>
+      <section class="brand-pillar">
+       <span class="pillar-icon">
+        <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+         <path d="M3 3v18h18M7 16v-4m5 4V9m5 7V5M6 8l5-4 5 1 5-4">
+         </path>
+        </svg>
+       </span>
+       <div>
+        <h2>
+         Grow your sales every day
+        </h2>
+        <p>
+         We help more families discover your business and enjoy a smooth ordering experience from start to finish.
+        </p>
+       </div>
+      </section>
+      <section class="brand-pillar">
+       <span class="pillar-icon">
+        <svg aria-hidden="true" class="icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewBox="0 0 24 24">
+         <circle cx="5" cy="18" r="3">
+         </circle>
+         <circle cx="19" cy="18" r="3">
+         </circle>
+         <path d="M8 18h7l-3-9H7l-2 6m7-6h5l2 6M13 4h4l2 8M4 8h5">
+         </path>
+        </svg>
+       </span>
+       <div>
+        <h2>
+         We handle the delivery with care
+        </h2>
+        <p>
+         You prepare the food or groceries, and we bring every order straight to your customer's door on time.
+        </p>
+       </div>
+      </section>
+     </div>
+    </div>
+    <img alt="African and Caribbean meals alongside fresh groceries" class="brand-food" decoding="async" height="246" src="assets/partner-food-groceries.webp" width="480"/>
+   </aside>
+   <section aria-label="Partner application form" class="application-card" id="application-card" tabindex="-1">
+    <div class="form-progress" id="form-progress">
+     <div class="progress-meta">
+      <span id="step-counter">
+       Step 1 of 6
+      </span>
+      <span id="step-summary">
+       Your information
+      </span>
+     </div>
+     <progress aria-labelledby="step-counter step-summary" class="sr-only" id="application-progress" max="6" value="1">
+      Step 1 of 6
+     </progress>
+     <ol aria-label="Application steps" class="step-track">
+      <li data-track-step="1">
+       <span aria-hidden="true" class="step-dot">
+        <span class="step-number">
+         1
+        </span>
+        <span class="step-check">
+         ✓
+        </span>
+       </span>
+       <span class="step-label">
+        Your
+        <br/>
+        information
+       </span>
+      </li>
+      <li data-track-step="2">
+       <span aria-hidden="true" class="step-dot">
+        <span class="step-number">
+         2
+        </span>
+        <span class="step-check">
+         ✓
+        </span>
+       </span>
+       <span class="step-label">
+        Business
+        <br/>
+        information
+       </span>
+      </li>
+      <li data-track-step="3">
+       <span aria-hidden="true" class="step-dot">
+        <span class="step-number">
+         3
+        </span>
+        <span class="step-check">
+         ✓
+        </span>
+       </span>
+       <span class="step-label">
+        Your offer
+       </span>
+      </li>
+      <li data-track-step="4">
+       <span aria-hidden="true" class="step-dot">
+        <span class="step-number">
+         4
+        </span>
+        <span class="step-check">
+         ✓
+        </span>
+       </span>
+       <span class="step-label">
+        Logo &amp;
+        <br/>
+        cover
+       </span>
+      </li>
+      <li data-track-step="5">
+       <span aria-hidden="true" class="step-dot">
+        <span class="step-number">
+         5
+        </span>
+        <span class="step-check">
+         ✓
+        </span>
+       </span>
+       <span class="step-label">
+        Legal &amp;
+        <br/>
+        compliance
+       </span>
+      </li>
+      <li data-track-step="6">
+       <span aria-hidden="true" class="step-dot">
+        <span class="step-number">
+         6
+        </span>
+        <span class="step-check">
+         ✓
+        </span>
+       </span>
+       <span class="step-label">
+        Review &amp;
+        <br/>
+        submit
+       </span>
+      </li>
+     </ol>
+    </div>
+    <noscript>
+     <div class="notice">
+      Please enable JavaScript to complete this application. For help, email
+      <a href="mailto:support@afritogo.com">
+       support@afritogo.com
+      </a>
+      .
+     </div>
+    </noscript>
+    <p class="notice" id="initialization-message" role="status">
+     Loading your application…
+    </p>
+    <form action="#" id="partner-form" method="post" novalidate="">
+     <fieldset class="form-fields" disabled="" id="application-fields">
+      <legend class="sr-only">
+       Partner application details
+      </legend>
+      <p class="required-note">
+       <span aria-hidden="true">
+        *
+       </span>
+       Required fields
+      </p>
+      <div aria-hidden="true" class="honeypot">
+       <label for="website">
+        Website
+       </label>
+       <input autocomplete="off" id="website" name="website" tabindex="-1" type="text"/>
+      </div>
+      <section aria-labelledby="step-1-title" class="form-step" data-step="1" id="step-1">
+       <div class="step-heading">
+        <h2 id="step-1-title" tabindex="-1">
+         Your information
+        </h2>
+       </div>
+       <div class="field-grid">
+        <div class="name-pair field--wide">
+         <div class="field" data-field="applicant_first_name">
+          <label for="applicant_first_name">
+           First Name
+           <span aria-hidden="true" class="required">
+            *
+           </span>
+          </label>
+          <input aria-describedby="applicant_first_name-error" autocapitalize="words" autocomplete="section-applicant given-name" data-person-name="true" id="applicant_first_name" maxlength="100" name="applicant_first_name" required="" spellcheck="false" type="text"/>
+          <p class="field-error" hidden="" id="applicant_first_name-error">
+          </p>
+         </div>
+         <div class="field" data-field="applicant_last_name">
+          <label for="applicant_last_name">
+           Last Name
+           <span aria-hidden="true" class="required">
+            *
+           </span>
+          </label>
+          <input aria-describedby="applicant_last_name-error" autocapitalize="words" autocomplete="section-applicant family-name" data-person-name="true" id="applicant_last_name" maxlength="100" name="applicant_last_name" required="" spellcheck="false" type="text"/>
+          <p class="field-error" hidden="" id="applicant_last_name-error">
+          </p>
+         </div>
+        </div>
+        <div class="field" data-field="applicant_email">
+         <label for="applicant_email">
+          Email address
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <input aria-describedby="applicant_email-error" autocapitalize="none" autocomplete="section-applicant email" id="applicant_email" inputmode="email" maxlength="254" name="applicant_email" placeholder="name@example.com" required="" spellcheck="false" type="email"/>
+         <p class="field-error" hidden="" id="applicant_email-error">
+         </p>
+        </div>
+        <div class="field" data-field="applicant_phone">
+         <label for="applicant_phone">
+          Phone number
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <input aria-describedby="applicant_phone-error" autocomplete="section-applicant tel" id="applicant_phone" inputmode="tel" maxlength="25" name="applicant_phone" placeholder="(212) 555-0100" required="" type="tel"/>
+         <p class="field-error" hidden="" id="applicant_phone-error">
+         </p>
+        </div>
+        <fieldset class="address-group field--wide">
+         <legend>
+          Mailing address
+         </legend>
+         <div class="address-grid">
+          <div class="field field--wide" data-field="mailing_address_line1">
+           <label for="mailing_address_line1">
+            Address Line 1
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="mailing_address_line1-error" autocomplete="section-applicant address-line1" id="mailing_address_line1" maxlength="200" name="mailing_address_line1" placeholder="Street address" required="" type="text"/>
+           <p class="field-error" hidden="" id="mailing_address_line1-error">
+           </p>
+          </div>
+          <div class="field field--wide" data-field="mailing_address_line2">
+           <label for="mailing_address_line2">
+            Address Line 2
+            <span class="optional">
+             Optional
+            </span>
+           </label>
+           <input aria-describedby="mailing_address_line2-error" autocomplete="section-applicant address-line2" id="mailing_address_line2" maxlength="200" name="mailing_address_line2" placeholder="Apartment, suite, unit, etc." type="text"/>
+           <p class="field-error" hidden="" id="mailing_address_line2-error">
+           </p>
+          </div>
+          <div class="field address-city" data-field="mailing_city">
+           <label for="mailing_city">
+            City
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="mailing_city-error" autocomplete="section-applicant address-level2" id="mailing_city" maxlength="100" name="mailing_city" required="" type="text"/>
+           <p class="field-error" hidden="" id="mailing_city-error">
+           </p>
+          </div>
+          <div class="field" data-field="mailing_state">
+           <label for="mailing_state">
+            State
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <select aria-describedby="mailing_state-error" autocomplete="section-applicant address-level1" id="mailing_state" name="mailing_state" required="">
+            <option value="">
+             Select state
+            </option>
+            <option value="AL">
+             Alabama
+            </option>
+            <option value="AK">
+             Alaska
+            </option>
+            <option value="AZ">
+             Arizona
+            </option>
+            <option value="AR">
+             Arkansas
+            </option>
+            <option value="CA">
+             California
+            </option>
+            <option value="CO">
+             Colorado
+            </option>
+            <option value="CT">
+             Connecticut
+            </option>
+            <option value="DE">
+             Delaware
+            </option>
+            <option value="FL">
+             Florida
+            </option>
+            <option value="GA">
+             Georgia
+            </option>
+            <option value="HI">
+             Hawaii
+            </option>
+            <option value="ID">
+             Idaho
+            </option>
+            <option value="IL">
+             Illinois
+            </option>
+            <option value="IN">
+             Indiana
+            </option>
+            <option value="IA">
+             Iowa
+            </option>
+            <option value="KS">
+             Kansas
+            </option>
+            <option value="KY">
+             Kentucky
+            </option>
+            <option value="LA">
+             Louisiana
+            </option>
+            <option value="ME">
+             Maine
+            </option>
+            <option value="MD">
+             Maryland
+            </option>
+            <option value="MA">
+             Massachusetts
+            </option>
+            <option value="MI">
+             Michigan
+            </option>
+            <option value="MN">
+             Minnesota
+            </option>
+            <option value="MS">
+             Mississippi
+            </option>
+            <option value="MO">
+             Missouri
+            </option>
+            <option value="MT">
+             Montana
+            </option>
+            <option value="NE">
+             Nebraska
+            </option>
+            <option value="NV">
+             Nevada
+            </option>
+            <option value="NH">
+             New Hampshire
+            </option>
+            <option value="NJ">
+             New Jersey
+            </option>
+            <option value="NM">
+             New Mexico
+            </option>
+            <option value="NY">
+             New York
+            </option>
+            <option value="NC">
+             North Carolina
+            </option>
+            <option value="ND">
+             North Dakota
+            </option>
+            <option value="OH">
+             Ohio
+            </option>
+            <option value="OK">
+             Oklahoma
+            </option>
+            <option value="OR">
+             Oregon
+            </option>
+            <option value="PA">
+             Pennsylvania
+            </option>
+            <option value="RI">
+             Rhode Island
+            </option>
+            <option value="SC">
+             South Carolina
+            </option>
+            <option value="SD">
+             South Dakota
+            </option>
+            <option value="TN">
+             Tennessee
+            </option>
+            <option value="TX">
+             Texas
+            </option>
+            <option value="UT">
+             Utah
+            </option>
+            <option value="VT">
+             Vermont
+            </option>
+            <option value="VA">
+             Virginia
+            </option>
+            <option value="WA">
+             Washington
+            </option>
+            <option value="WV">
+             West Virginia
+            </option>
+            <option value="WI">
+             Wisconsin
+            </option>
+            <option value="WY">
+             Wyoming
+            </option>
+           </select>
+           <p class="field-error" hidden="" id="mailing_state-error">
+           </p>
+          </div>
+          <div class="field" data-field="mailing_zip">
+           <label for="mailing_zip">
+            ZIP Code
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="mailing_zip-error" autocomplete="section-applicant postal-code" id="mailing_zip" inputmode="numeric" maxlength="10" name="mailing_zip" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="ZIP Code" required="" type="text"/>
+           <p class="field-error" hidden="" id="mailing_zip-error">
+           </p>
+          </div>
+         </div>
+        </fieldset>
+        <fieldset class="field choice-field field--wide" data-field="is_owner">
+         <legend>
+          Are you the business owner?
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </legend>
+         <div class="choice-grid">
+          <label class="choice">
+           <input aria-describedby="is_owner-error" id="is_owner-0" name="is_owner" required="" type="radio" value="Yes"/>
+           <span>
+            Yes
+           </span>
+          </label>
+          <label class="choice">
+           <input aria-describedby="is_owner-error" id="is_owner-1" name="is_owner" required="" type="radio" value="No"/>
+           <span>
+            No
+           </span>
+          </label>
+         </div>
+         <p class="field-error" hidden="" id="is_owner-error">
+         </p>
+        </fieldset>
+        <fieldset class="conditional-block field--wide" disabled="" hidden="" id="owner-fields">
+         <legend>
+          Business owner’s information
+         </legend>
+         <p class="field-hint">
+          The owner must authorize this application before approval.
+         </p>
+         <div class="field-grid">
+          <div class="name-pair field--wide">
+           <div class="field" data-field="owner_first_name">
+            <label for="owner_first_name">
+             First Name
+             <span aria-hidden="true" class="required">
+              *
+             </span>
+            </label>
+            <input aria-describedby="owner_first_name-error" autocapitalize="words" autocomplete="section-owner given-name" data-person-name="true" id="owner_first_name" maxlength="100" name="owner_first_name" required="" spellcheck="false" type="text"/>
+            <p class="field-error" hidden="" id="owner_first_name-error">
+            </p>
+           </div>
+           <div class="field" data-field="owner_last_name">
+            <label for="owner_last_name">
+             Last Name
+             <span aria-hidden="true" class="required">
+              *
+             </span>
+            </label>
+            <input aria-describedby="owner_last_name-error" autocapitalize="words" autocomplete="section-owner family-name" data-person-name="true" id="owner_last_name" maxlength="100" name="owner_last_name" required="" spellcheck="false" type="text"/>
+            <p class="field-error" hidden="" id="owner_last_name-error">
+            </p>
+           </div>
+          </div>
+          <div class="field" data-field="owner_phone">
+           <label for="owner_phone">
+            Owner’s phone number
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="owner_phone-error" autocomplete="section-owner tel" id="owner_phone" inputmode="tel" maxlength="25" name="owner_phone" placeholder="(212) 555-0100" required="" type="tel"/>
+           <p class="field-error" hidden="" id="owner_phone-error">
+           </p>
+          </div>
+          <div class="field" data-field="owner_email">
+           <label for="owner_email">
+            Owner’s email address
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="owner_email-error" autocapitalize="none" autocomplete="section-owner email" id="owner_email" inputmode="email" maxlength="254" name="owner_email" placeholder="name@example.com" required="" spellcheck="false" type="email"/>
+           <p class="field-error" hidden="" id="owner_email-error">
+           </p>
+          </div>
+         </div>
+        </fieldset>
+        <fieldset class="field choice-field field--wide" data-field="business_type">
+         <legend>
+          Business type
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </legend>
+         <div class="choice-grid">
+          <label class="choice">
+           <input aria-describedby="business_type-error" id="business_type-0" name="business_type" required="" type="radio" value="Restaurant"/>
+           <span>
+            Restaurant
+           </span>
+          </label>
+          <label class="choice">
+           <input aria-describedby="business_type-error" id="business_type-1" name="business_type" required="" type="radio" value="Grocery Store"/>
+           <span>
+            Grocery Store
+           </span>
+          </label>
+         </div>
+         <p class="field-error" hidden="" id="business_type-error">
+         </p>
+        </fieldset>
+       </div>
+      </section>
+      <section aria-labelledby="step-2-title" class="form-step" data-step="2" hidden="" id="step-2">
+       <div class="step-heading">
+        <h2 data-default-title="Business information" id="step-2-title" tabindex="-1">
+         Business information
+        </h2>
+        <p id="business-path-note">
+        </p>
+       </div>
+       <div class="field-grid">
+        <div class="field field--wide" data-field="business_name">
+         <label for="business_name">
+          <span id="business-name-label">
+           Business name
+          </span>
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <input aria-describedby="business_name-error" autocomplete="section-business organization" id="business_name" maxlength="200" name="business_name" required="" type="text"/>
+         <p class="field-error" hidden="" id="business_name-error">
+         </p>
+        </div>
+        <div class="field" data-field="business_email">
+         <label for="business_email">
+          Business email
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <input aria-describedby="business_email-error" autocapitalize="none" autocomplete="section-business email" id="business_email" inputmode="email" maxlength="254" name="business_email" placeholder="name@example.com" required="" spellcheck="false" type="email"/>
+         <p class="field-error" hidden="" id="business_email-error">
+         </p>
+        </div>
+        <div class="field" data-field="business_phone">
+         <label for="business_phone">
+          Business phone
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <input aria-describedby="business_phone-error" autocomplete="section-business tel" id="business_phone" inputmode="tel" maxlength="25" name="business_phone" placeholder="(212) 555-0100" required="" type="tel"/>
+         <p class="field-error" hidden="" id="business_phone-error">
+         </p>
+        </div>
+        <fieldset class="address-group field--wide">
+         <legend>
+          Business address
+         </legend>
+         <div class="address-grid">
+          <div class="field field--wide" data-field="business_address_line1">
+           <label for="business_address_line1">
+            Address Line 1
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="business_address_line1-error" autocomplete="section-business address-line1" id="business_address_line1" maxlength="200" name="business_address_line1" placeholder="Street address" required="" type="text"/>
+           <p class="field-error" hidden="" id="business_address_line1-error">
+           </p>
+          </div>
+          <div class="field field--wide" data-field="business_address_line2">
+           <label for="business_address_line2">
+            Address Line 2
+            <span class="optional">
+             Optional
+            </span>
+           </label>
+           <input aria-describedby="business_address_line2-error" autocomplete="section-business address-line2" id="business_address_line2" maxlength="200" name="business_address_line2" placeholder="Apartment, suite, unit, etc." type="text"/>
+           <p class="field-error" hidden="" id="business_address_line2-error">
+           </p>
+          </div>
+          <div class="field address-city" data-field="business_city">
+           <label for="business_city">
+            City
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="business_city-error" autocomplete="section-business address-level2" id="business_city" maxlength="100" name="business_city" required="" type="text"/>
+           <p class="field-error" hidden="" id="business_city-error">
+           </p>
+          </div>
+          <div class="field" data-field="business_state">
+           <label for="business_state">
+            State
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <select aria-describedby="business_state-error" autocomplete="section-business address-level1" id="business_state" name="business_state" required="">
+            <option value="">
+             Select state
+            </option>
+            <option value="AL">
+             Alabama
+            </option>
+            <option value="AK">
+             Alaska
+            </option>
+            <option value="AZ">
+             Arizona
+            </option>
+            <option value="AR">
+             Arkansas
+            </option>
+            <option value="CA">
+             California
+            </option>
+            <option value="CO">
+             Colorado
+            </option>
+            <option value="CT">
+             Connecticut
+            </option>
+            <option value="DE">
+             Delaware
+            </option>
+            <option value="FL">
+             Florida
+            </option>
+            <option value="GA">
+             Georgia
+            </option>
+            <option value="HI">
+             Hawaii
+            </option>
+            <option value="ID">
+             Idaho
+            </option>
+            <option value="IL">
+             Illinois
+            </option>
+            <option value="IN">
+             Indiana
+            </option>
+            <option value="IA">
+             Iowa
+            </option>
+            <option value="KS">
+             Kansas
+            </option>
+            <option value="KY">
+             Kentucky
+            </option>
+            <option value="LA">
+             Louisiana
+            </option>
+            <option value="ME">
+             Maine
+            </option>
+            <option value="MD">
+             Maryland
+            </option>
+            <option value="MA">
+             Massachusetts
+            </option>
+            <option value="MI">
+             Michigan
+            </option>
+            <option value="MN">
+             Minnesota
+            </option>
+            <option value="MS">
+             Mississippi
+            </option>
+            <option value="MO">
+             Missouri
+            </option>
+            <option value="MT">
+             Montana
+            </option>
+            <option value="NE">
+             Nebraska
+            </option>
+            <option value="NV">
+             Nevada
+            </option>
+            <option value="NH">
+             New Hampshire
+            </option>
+            <option value="NJ">
+             New Jersey
+            </option>
+            <option value="NM">
+             New Mexico
+            </option>
+            <option value="NY">
+             New York
+            </option>
+            <option value="NC">
+             North Carolina
+            </option>
+            <option value="ND">
+             North Dakota
+            </option>
+            <option value="OH">
+             Ohio
+            </option>
+            <option value="OK">
+             Oklahoma
+            </option>
+            <option value="OR">
+             Oregon
+            </option>
+            <option value="PA">
+             Pennsylvania
+            </option>
+            <option value="RI">
+             Rhode Island
+            </option>
+            <option value="SC">
+             South Carolina
+            </option>
+            <option value="SD">
+             South Dakota
+            </option>
+            <option value="TN">
+             Tennessee
+            </option>
+            <option value="TX">
+             Texas
+            </option>
+            <option value="UT">
+             Utah
+            </option>
+            <option value="VT">
+             Vermont
+            </option>
+            <option value="VA">
+             Virginia
+            </option>
+            <option value="WA">
+             Washington
+            </option>
+            <option value="WV">
+             West Virginia
+            </option>
+            <option value="WI">
+             Wisconsin
+            </option>
+            <option value="WY">
+             Wyoming
+            </option>
+           </select>
+           <p class="field-error" hidden="" id="business_state-error">
+           </p>
+          </div>
+          <div class="field" data-field="business_zip">
+           <label for="business_zip">
+            ZIP Code
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </label>
+           <input aria-describedby="business_zip-error" autocomplete="section-business postal-code" id="business_zip" inputmode="numeric" maxlength="10" name="business_zip" pattern="[0-9]{5}(-[0-9]{4})?" placeholder="ZIP Code" required="" type="text"/>
+           <p class="field-error" hidden="" id="business_zip-error">
+           </p>
+          </div>
+         </div>
+        </fieldset>
+        <div class="field field--wide" data-field="category">
+         <label for="category">
+          <span id="category-label">
+           Cuisine Type
+          </span>
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <select aria-describedby="category-error" id="category" name="category" required="">
+          <option value="">
+           Select a category
+          </option>
+         </select>
+         <p class="field-error" hidden="" id="category-error">
+         </p>
+        </div>
+        <div class="field field--wide" data-field="category_detail">
+         <label for="category_detail">
+          <span id="category-detail-label">
+           Specific cuisine or country
+          </span>
+          <span class="optional">
+           Optional
+          </span>
+         </label>
+         <input aria-describedby="category_detail-hint category_detail-error" id="category_detail" maxlength="200" name="category_detail" type="text"/>
+         <p class="field-hint" id="category_detail-hint">
+          For example, Ghanaian, Nigerian or Jamaican.
+         </p>
+         <p class="field-error" hidden="" id="category_detail-error">
+         </p>
+        </div>
+        <fieldset class="field choice-field field--wide" data-field="order_types">
+         <legend>
+          How do you want to receive orders?
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </legend>
+         <div class="choice-grid choice-grid--three">
+          <label class="choice">
+           <input aria-describedby="order_types-error" id="order_types-0" name="order_types" required="" type="radio" value="Delivery"/>
+           <span>
+            Delivery
+           </span>
+          </label>
+          <label class="choice">
+           <input aria-describedby="order_types-error" id="order_types-1" name="order_types" required="" type="radio" value="Pickup"/>
+           <span>
+            Pickup
+           </span>
+          </label>
+          <label class="choice">
+           <input aria-describedby="order_types-error" id="order_types-2" name="order_types" required="" type="radio" value="Delivery and Pickup"/>
+           <span>
+            Delivery and Pickup
+           </span>
+          </label>
+         </div>
+         <p class="field-error" hidden="" id="order_types-error">
+         </p>
+        </fieldset>
+        <fieldset class="field choice-field field--wide" data-field="equipment_needed">
+         <legend>
+          Do you need a tablet or printer to manage orders?
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </legend>
+         <div class="choice-grid">
+          <label class="choice">
+           <input aria-describedby="equipment_needed-error" id="equipment_needed-0" name="equipment_needed" required="" type="radio" value="Yes"/>
+           <span>
+            Yes
+           </span>
+          </label>
+          <label class="choice">
+           <input aria-describedby="equipment_needed-error" id="equipment_needed-1" name="equipment_needed" required="" type="radio" value="No"/>
+           <span>
+            No
+           </span>
+          </label>
+         </div>
+         <p class="field-error" hidden="" id="equipment_needed-error">
+         </p>
+        </fieldset>
+        <fieldset class="field choice-field field--wide" data-field="sells_alcohol">
+         <legend>
+          Do you sell alcohol?
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </legend>
+         <div class="choice-grid">
+          <label class="choice">
+           <input aria-describedby="sells_alcohol-error" id="sells_alcohol-0" name="sells_alcohol" required="" type="radio" value="Yes"/>
+           <span>
+            Yes
+           </span>
+          </label>
+          <label class="choice">
+           <input aria-describedby="sells_alcohol-error" id="sells_alcohol-1" name="sells_alcohol" required="" type="radio" value="No"/>
+           <span>
+            No
+           </span>
+          </label>
+         </div>
+         <p class="field-error" hidden="" id="sells_alcohol-error">
+         </p>
+        </fieldset>
+        <fieldset class="conditional-block field--wide" disabled="" hidden="" id="alcohol-fields">
+         <legend class="sr-only">
+          Liquor license confirmation
+         </legend>
+         <div class="field field--wide check-field" data-field="liquor_license_confirmed">
+          <label class="check-label" for="liquor_license_confirmed">
+           <input aria-describedby="liquor_license_confirmed-error" id="liquor_license_confirmed" name="liquor_license_confirmed" required="" type="checkbox"/>
+           <span>
+            I confirm that my business holds a valid NYS Liquor License
+            <span aria-hidden="true" class="required">
+             *
+            </span>
+           </span>
+          </label>
+          <p class="field-error" hidden="" id="liquor_license_confirmed-error">
+          </p>
+         </div>
+        </fieldset>
+       </div>
+      </section>
+      <section aria-labelledby="step-3-title" class="form-step" data-step="3" hidden="" id="step-3">
+       <div class="step-heading">
+        <h2 id="step-3-title" tabindex="-1">
+        </h2>
+       </div>
+       <div class="step-content">
+        <article aria-labelledby="offer-card-title" class="launch-offer" id="launch-offer">
+        </article>
+        <div class="field field--wide check-field offer-acceptance" data-field="offer_accepted">
+         <label class="check-label" for="offer_accepted">
+          <input aria-describedby="offer_accepted-error" id="offer_accepted" name="offer_accepted" required="" type="checkbox"/>
+          <span id="offer-acceptance-label">
+          </span>
+         </label>
+         <p class="field-error" hidden="" id="offer_accepted-error">
+         </p>
+        </div>
+        <input id="plan" name="plan" type="hidden" value=""/>
+       </div>
+      </section>
+      <section aria-labelledby="step-4-title" class="form-step" data-step="4" hidden="" id="step-4">
+       <div class="step-heading">
+        <h2 id="step-4-title" tabindex="-1">
+         Logo and cover image
+        </h2>
+        <p>
+         Help customers recognize your business. Both uploads are optional.
+        </p>
+       </div>
+       <div class="field-grid">
+        <div class="field field--wide upload-field" data-field="logo">
+         <label class="upload-title" for="logo">
+          Business logo
+          <span class="optional">
+           Optional
+          </span>
+         </label>
+         <p class="field-hint" id="logo-hint">
+          512 × 512 px recommended. You can add this later.
+         </p>
+         <div class="upload-zone" data-upload-zone="logo">
+          <input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="logo-hint file-rules logo-error" class="file-input" id="logo" name="logo" type="file"/>
+          <div aria-hidden="true" class="upload-content">
+           <svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="24">
+            <path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5">
+            </path>
+           </svg>
+           <span>
+            <strong>
+             Choose a file
+            </strong>
+            <small>
+             or drag and drop here
+            </small>
+           </span>
+           <span class="upload-count">
+            1 file
+           </span>
+          </div>
+         </div>
+         <ul aria-label="Selected business logo files" class="file-list" id="logo-list">
+         </ul>
+         <p class="field-error" hidden="" id="logo-error">
+         </p>
+        </div>
+        <div class="field field--wide upload-field" data-field="cover">
+         <label class="upload-title" for="cover">
+          Cover image
+          <span class="optional">
+           Optional
+          </span>
+         </label>
+         <p class="field-hint" id="cover-hint">
+          2000 × 1000 px recommended. Show your food, products or storefront.
+         </p>
+         <div class="upload-zone" data-upload-zone="cover">
+          <input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="cover-hint file-rules cover-error" class="file-input" id="cover" name="cover" type="file"/>
+          <div aria-hidden="true" class="upload-content">
+           <svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="24">
+            <path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5">
+            </path>
+           </svg>
+           <span>
+            <strong>
+             Choose a file
+            </strong>
+            <small>
+             or drag and drop here
+            </small>
+           </span>
+           <span class="upload-count">
+            1 file
+           </span>
+          </div>
+         </div>
+         <ul aria-label="Selected cover image files" class="file-list" id="cover-list">
+         </ul>
+         <p class="field-error" hidden="" id="cover-error">
+         </p>
+        </div>
+       </div>
+      </section>
+      <section aria-labelledby="step-5-title" class="form-step" data-step="5" hidden="" id="step-5">
+       <div class="step-heading">
+        <h2 id="step-5-title" tabindex="-1">
+         Legal and compliance
+        </h2>
+        <p>
+         Upload the owner’s ID and proof of your business.
+        </p>
+       </div>
+       <div class="field-grid">
+        <div class="field field--wide upload-field" data-field="owner_id">
+         <label class="upload-title" for="owner_id">
+          Owner government-issued ID (Driver License, State ID or Passport)
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <p class="field-hint" id="owner_id-hint">
+          One clear file. Make sure the details are readable.
+         </p>
+         <div class="upload-zone" data-upload-zone="owner_id">
+          <input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="owner_id-hint file-rules owner_id-error" aria-required="true" class="file-input" id="owner_id" name="owner_id" type="file"/>
+          <div aria-hidden="true" class="upload-content">
+           <svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="24">
+            <path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5">
+            </path>
+           </svg>
+           <span>
+            <strong>
+             Choose a file
+            </strong>
+            <small>
+             or drag and drop here
+            </small>
+           </span>
+           <span class="upload-count">
+            1 file
+           </span>
+          </div>
+         </div>
+         <ul aria-label="Selected owner government-issued id (driver license, state id or passport) files" class="file-list" id="owner_id-list">
+         </ul>
+         <p class="field-error" hidden="" id="owner_id-error">
+         </p>
+        </div>
+        <div class="field field--wide upload-field" data-field="ownership">
+         <label class="upload-title" for="ownership">
+          Proof of business
+          <span aria-hidden="true" class="required">
+           *
+          </span>
+         </label>
+         <p class="field-hint" id="ownership-hint">
+          Upload one document showing your business name, such as: NYC Food Service Establishment Permit, NYS retail food store license, NYS Department of State filing (Articles of Organization/Incorporation), Certificate of Assumed Name (DBA), IRS EIN confirmation letter, or NYS Certificate of Authority.
+         </p>
+         <div class="upload-zone" data-upload-zone="ownership">
+          <input accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.pdf,image/jpeg,image/png,image/webp,image/heic,image/heif,application/pdf" aria-describedby="ownership-hint file-rules ownership-error" aria-required="true" class="file-input" id="ownership" multiple="" name="ownership" type="file"/>
+          <div aria-hidden="true" class="upload-content">
+           <svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewBox="0 0 24 24" width="24">
+            <path d="M12 16V3m-4 4 4-4 4 4M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5">
+            </path>
+           </svg>
+           <span>
+            <strong>
+             Choose files
+            </strong>
+            <small>
+             or drag and drop here
+            </small>
+           </span>
+           <span class="upload-count">
+            1–2 files
+           </span>
+          </div>
+         </div>
+         <ul aria-label="Selected proof of business files" class="file-list" id="ownership-list">
+         </ul>
+         <p class="field-error" hidden="" id="ownership-error">
+         </p>
+        </div>
+       </div>
+      </section>
+      <section aria-labelledby="step-6-title" class="form-step" data-step="6" hidden="" id="step-6">
+       <div class="step-heading">
+        <h2 id="step-6-title" tabindex="-1">
+         Review and submit
+        </h2>
+        <p>
+         Check your details, then confirm the statements below.
+        </p>
+       </div>
+       <div class="step-content">
+        <div class="review-summary" id="review-summary">
+        </div>
+        <p class="consent-note" hidden="" id="owner-consent-review">
+        </p>
+        <div class="agreement-card">
+         <a href="https://partner.afritogo.com/merchant-partner-agreement.pdf" id="agreement-link" rel="noopener noreferrer" target="_blank">
+          View Merchant Partner Agreement
+          <span aria-hidden="true">
+           ↗
+          </span>
+          <span class="sr-only">
+           (opens in a new tab)
+          </span>
+         </a>
+        </div>
+        <div class="field field--wide check-field" data-field="agreement_accepted">
+         <label class="check-label" for="agreement_accepted">
+          <input aria-describedby="agreement_accepted-error" id="agreement_accepted" name="agreement_accepted" required="" type="checkbox"/>
+          <span>
+           I have read and agree to the AfriToGo Merchant Partner Agreement and confirm that all information provided is accurate.
+           <span aria-hidden="true" class="required">
+            *
+           </span>
+          </span>
+         </label>
+         <p class="field-error" hidden="" id="agreement_accepted-error">
+         </p>
+        </div>
+        <div class="field field--wide check-field" data-field="permits_confirmed">
+         <label class="check-label" for="permits_confirmed">
+          <input aria-describedby="permits_confirmed-error" id="permits_confirmed" name="permits_confirmed" required="" type="checkbox"/>
+          <span>
+           I confirm that my business holds all required NYC permits, licenses and certifications to legally operate as a food establishment in New York City, including a valid NYC Food Service Establishment Permit.
+           <span aria-hidden="true" class="required">
+            *
+           </span>
+          </span>
+         </label>
+         <p class="field-error" hidden="" id="permits_confirmed-error">
+         </p>
+        </div>
+       </div>
+      </section>
+      <p class="upload-rules" hidden="" id="file-rules">
+       JPG, JPEG, PNG, WEBP, HEIC, HEIF or PDF. Maximum 8 MB per file after processing. Photos are resized in your browser where supported; PDFs are unchanged.
+      </p>
+      <div class="error-summary" hidden="" id="submission-error" role="alert" tabindex="-1">
+       <h3>
+        We couldn’t submit your application
+       </h3>
+       <ul id="submission-errors">
+       </ul>
+      </div>
+      <div class="form-actions">
+       <button class="button button--secondary" hidden="" id="back-button" type="button">
+        <span aria-hidden="true">
+         ←
+        </span>
+        Back
+       </button>
+       <span class="next-note" id="next-note">
+        Next: Business information
+       </span>
+       <button class="button button--primary" id="next-button" type="button">
+        Continue
+        <span aria-hidden="true">
+         →
+        </span>
+       </button>
+       <button class="button button--primary" hidden="" id="submit-button" type="submit">
+        Submit application
+        <span aria-hidden="true">
+         →
+        </span>
+       </button>
+      </div>
+     </fieldset>
+    </form>
+    <p aria-atomic="true" aria-live="polite" class="sr-only" id="step-status" role="status">
+    </p>
+    <div aria-atomic="true" aria-live="polite" class="submission-status" hidden="" id="submission-status" role="status">
+     <span aria-hidden="true" class="spinner">
+     </span>
+     <p>
+      Submitting your application…
+      <small>
+       Keep this page open while your documents upload.
+      </small>
+     </p>
+    </div>
+    <section aria-labelledby="success-title" class="success-screen" hidden="" id="success-screen">
+     <div aria-hidden="true" class="success-icon">
+      ✓
+     </div>
+     <p class="eyebrow">
+      APPLICATION RECEIVED
+     </p>
+     <h2 id="success-title" tabindex="-1">
+      Thank you for applying.
+     </h2>
+     <p id="success-message">
+     </p>
+     <p class="consent-note" hidden="" id="owner-consent-status">
+     </p>
+     <div class="application-number">
+      <span>
+       Your application number
+      </span>
+      <strong id="application-id">
+      </strong>
+     </div>
+     <p class="success-help">
+      Keep this number for your records. Questions?
+      <br/>
+      <a href="mailto:support@afritogo.com">
+       support@afritogo.com
+      </a>
+     </p>
+     <a class="button button--primary" href="https://www.afritogo.com">
+      Return to AfriToGo
+      <span aria-hidden="true">
+       ↗
+      </span>
+     </a>
+    </section>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <span>
+    ©
+    <span id="copyright-year">
+     2026
+    </span>
+    AfriToGo. All rights reserved.
+   </span>
+  </footer>
+ </body>
 </html>
