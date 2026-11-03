@@ -3,7 +3,7 @@
 // ================= EDIT THESE THREE VALUES BEFORE LAUNCH =================
 const OFFER_TEXT = "Founding Partner offer — details to be confirmed.";
 const AGREEMENT_URL = "#";
-const APPS_SCRIPT_URL = "PASTE_WEB_APP_URL_HERE";
+const APPS_SCRIPT_URL = "https://script.google.com/u/0/home/projects/1S9L4hdK8bBL0Ua4Gvi4HZTs73vNRuS_-w5g7Gfrec9JP0ZXWtSbYLxww/edit";
 // ========================================================================
 
 (() => {
