@@ -732,10 +732,41 @@ const APPS_SCRIPT_URL = "PASTE_WEB_APP_URL_HERE";
     renderOffer();
     $("#copyright-year").textContent = String(new Date().getFullYear());
     $("#agreement-link").href = AGREEMENT_URL;
-    $("#brand-toggle").addEventListener("click", () => {
-      const expanded = $("#brand-toggle").getAttribute("aria-expanded") === "true";
-      $("#brand-toggle").setAttribute("aria-expanded", String(!expanded));
-      document.body.classList.toggle("welcome-open", !expanded);
+    // Keep both mobile controls synchronized; desktop benefits remain visible.
+    const welcomeMedia = window.matchMedia("(max-width: 1023px)");
+    const welcomeButtons = [$("#brand-toggle"), $("#benefits-toggle")];
+    let lastWelcomeTrigger = welcomeButtons[0];
+    function setWelcome(expanded) {
+      const isOpen = welcomeMedia.matches && expanded;
+      document.body.classList.toggle("welcome-open", isOpen);
+      $("#partner-benefits").hidden = welcomeMedia.matches && !isOpen;
+      welcomeButtons.forEach(button => button.setAttribute("aria-expanded", String(isOpen)));
+      $("#brand-toggle").setAttribute("aria-label", isOpen ? "Hide partner benefits" : "Show partner benefits");
+      $("#benefits-toggle span").textContent = isOpen ? "Hide partner benefits" : "See partner benefits";
+    }
+    welcomeButtons.forEach(button => button.addEventListener("click", () => {
+      lastWelcomeTrigger = button;
+      setWelcome(button.getAttribute("aria-expanded") !== "true");
+    }));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && document.body.classList.contains("welcome-open")) {
+        setWelcome(false); lastWelcomeTrigger.focus({ preventScroll: true });
+      }
+    });
+    const onWelcomeResize = () => setWelcome(false);
+    if (welcomeMedia.addEventListener) welcomeMedia.addEventListener("change", onWelcomeResize);
+    else welcomeMedia.addListener(onWelcomeResize);
+    setWelcome(false);
+
+    // Photos have a self-contained fallback, so a missing /assets image never
+    // leaves a broken-picture placeholder over the artwork. No third-party host.
+    $$("img[data-image-fallback]").forEach(image => {
+      const fallback = () => {
+        const source = image.dataset.imageFallback;
+        if (source) { image.removeAttribute("data-image-fallback"); image.src = source; }
+      };
+      image.addEventListener("error", fallback, { once: true });
+      if (image.complete && image.naturalWidth === 0) fallback();
     });
     $("#next-button").addEventListener("click", () => { if (!state.sending && validateStep(state.step)) showStep(state.step + 1); });
     $("#back-button").addEventListener("click", () => { if (!state.sending) showStep(state.step - 1); });
