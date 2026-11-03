@@ -1,0 +1,66 @@
+[
+  {
+    "test": "Compact first screen, 50 states, no marketing, no script errors",
+    "status": "passed"
+  },
+  {
+    "test": "Required fields and error focus",
+    "status": "passed"
+  },
+  {
+    "test": "Reject typed digits in names and typed letters in phones",
+    "status": "passed"
+  },
+  {
+    "test": "Name/email/phone/address/ZIP invalid-input matrix and final step validation",
+    "status": "passed"
+  },
+  {
+    "test": "Restaurant-only path and valid business details",
+    "status": "passed"
+  },
+  {
+    "test": "Non-owner details required, owner Yes hides and disables them",
+    "status": "passed"
+  },
+  {
+    "test": "Grocery-only path, switching resets category, conditional alcohol check",
+    "status": "passed"
+  },
+  {
+    "test": "Optional images, mandatory documents, permit counts, EIN and review",
+    "status": "passed"
+  },
+  {
+    "test": "Unconfigured endpoint/agreement blocks sending; no false success",
+    "status": "passed"
+  },
+  {
+    "test": "Exact API contract, joined names/addresses, normalized phones, retained data on failure",
+    "status": "passed"
+  },
+  {
+    "test": "Success screen and confirmed-only owner email status, sensitive memory cleared",
+    "status": "passed"
+  },
+  {
+    "test": "No email-sent claim when backend does not confirm delivery",
+    "status": "passed"
+  },
+  {
+    "test": "4096px PNG downsizes to 2000px, oversized PDF and unsupported file rejected, 5 permits enforced",
+    "status": "passed"
+  },
+  {
+    "test": "In-flight submit lock prevents duplicate sends; owner path skips consent notice",
+    "status": "passed"
+  },
+  {
+    "test": "All six steps at 320\u20131440 pixels with no page overflow or JS errors",
+    "status": "passed"
+  },
+  {
+    "test": "Explicit labels, unique IDs, all aria-describedby references resolve",
+    "status": "passed"
+  }
+]

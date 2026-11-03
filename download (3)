@@ -1,0 +1,14 @@
+# Do not commit applicant documents, credentials or local tooling.
+.env
+.env.*
+*.key
+*.pem
+.DS_Store
+Thumbs.db
+node_modules/
+uploads/
+applications/
+private/
+
+qa-output/
+__pycache__/
