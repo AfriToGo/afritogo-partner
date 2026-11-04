@@ -79,7 +79,7 @@ const OFFER = {
   "reviewNotAccepted": "Launch Partner — not accepted"
 };
 const AGREEMENT_URL = "https://partner.afritogo.com/merchant-partner-agreement.pdf";
-const APPS_SCRIPT_URL = "PASTE_WEB_APP_URL_HERE";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzmMCgZ_U60vWhsKiLK5FDvsrOnZV_kQmenmogQx61AJcWv5w18H1D7643PJjb0_Mbf/exec";
 // ===========================================================
 
 (() => {
